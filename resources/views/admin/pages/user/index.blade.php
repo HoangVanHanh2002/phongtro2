@@ -4,7 +4,7 @@
 
     <section class="content">
         <div class="container-fluid">
-
+            <div class="">
             <!-- /.row -->
             <div class="row">
                 <div class="col-12">
@@ -32,12 +32,12 @@
                                 <thead>
                                     <tr>
                                         <th>#</th>
-                                        <th>Avatar</th>
+                                        <th>Ảnh đại diện</th>
                                         <th>Tên</th>
                                         <th>Email</th>
-                                        <th>Phone</th>
+                                        <th>Số điện thoại</th>
                                         <th>Ngày tạo</th>
-                                        <th>#</th>
+                                        <th>Thao tác</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -54,9 +54,9 @@
                                             <td scope="row">{{ $item->created_at }}</td>
                                             <td scope="row">
                                                 <a href="{{ route('get_admin.user.update', $item->id) }}"
-                                                    class="btn btn-primary btn-sm">Update</a>
+                                                    class="btn btn-info btn-sm">sửa</a>
                                                 <a href="{{ route('get_admin.user.delete', $item->id) }}"
-                                                    class="btn btn-danger btn-sm">Delete</a>
+                                                    class="btn btn-danger btn-sm">xóa</a>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -70,7 +70,7 @@
             </div>
 
         </div>
-
+    </div>
     </section>
 
 @stop

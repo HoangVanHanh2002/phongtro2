@@ -15,19 +15,21 @@ class PermissionMiddlewareCustomer
 {
     public function handle($request, Closure $next, $permission, $guard = 'admins')
     {
-        $authGuard = app('auth')->guard($guard);
 
+        $authGuard = app('auth')->guard($guard);
+        
         if ($authGuard->guest()) {
             throw UnauthorizedException::notLoggedIn();
         }
-
+        
         $permissions = is_array($permission)
-            ? $permission
+        ? $permission
             : explode('|', $permission);
 
         foreach ($permissions as $permission) {
             if ($authGuard->user()->can($permission)) {
                 return $next($request);
+
             }
         }
 
